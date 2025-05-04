@@ -1,17 +1,38 @@
 - defaults:
     link:
+      glob: true
+      force: true
+      create: true
       relink: true
 
-- clean: ['~']
+- shell:
+    - command: git submodule update --init --recursive
+      description: Installing Submodules
+
+    - command: |
+        if [ ! -d "$HOME/.oh-my-zsh" ]; then
+          sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+        fi
+      description: Installing Oh My Zsh
+
+    - command: |
+        P10K_OMZ_THEME="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
+        if [ ! -d "$P10K_OMZ_THEME" ]; then
+          git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$P10K_OMZ_THEME"
+        fi
+      description: Installing powerlevel10k theme
+
+    - command: |
+        if [ ! -d "$HOME/.tmux" ]; then
+          git clone --single-branch https://github.com/gpakosz/.tmux.git "$HOME/.tmux"
+          ln -s -f "$HOME/.tmux/.tmux.conf*" "$HOME"
+        fi
+      description: Installing Oh My Tmux
 
 - link:
-    ~/.tmux.conf: tmux.conf
-    ~/.vim: vim
-    ~/.vimrc: vimrc
-
-- create:
-    - ~/downloads
-    - ~/.vim/undo-history
-
-- shell:
-  - [git submodule update --init --recursive, Installing submodules]
+    "~/.zshrc": "terminal/.zshrc"
+    "~/.p10k.zsh": "terminal/.p10k.zsh"
+    "~/.zprofile": "terminal/.zprofile"
+    "~/.zsh_history": "terminal/.zsh_history"
+    "~/.tmux/.tmux.conf.local": "terminal/.tmux.conf.local"
+    "~/.config/qterminal.org/qterminal.ini": "terminal/qterminal.ini"
