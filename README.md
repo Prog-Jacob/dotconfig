@@ -6,19 +6,23 @@ This is my personal setup for Linux systems — mainly as a backup and to easily
 
 ## What’s Included
 
-* Terminal: [QTerminal](https://github.com/lxqt/qterminal) + [Zsh](https://www.zsh.org/) + [Oh My Zsh](https://ohmyz.sh/) + [Powerlevel10k](https://github.com/romkatv/powerlevel10k)
-* [Tmux](https://github.com/tmux/tmux) with [Oh My Tmux](https://github.com/gpakosz/.tmux)
-* [Neovim](https://neovim.io/) with [NvChad](https://nvchad.com/)
-* [Neofetch](https://github.com/dylanaraps/neofetch)
-* [Touchégg](https://github.com/JoseExposito/touchegg) via [Touche](https://github.com/JoseExposito/touche) for touchpad gestures
-* [EasyEffects](https://github.com/wwmm/easyeffects) presets for audio processing
-* Git configuration
-* [Rclone](https://rclone.org/) setup for Google Drive sync
-* XFCE-specific keybindings and desktop tweaks
+- Terminal: [QTerminal](https://github.com/lxqt/qterminal) + [Zsh](https://www.zsh.org/) + [Oh My Zsh](https://ohmyz.sh/) + [Powerlevel10k](https://github.com/romkatv/powerlevel10k)
+- [Tmux](https://github.com/tmux/tmux) with [Oh My Tmux](https://github.com/gpakosz/.tmux)
+- [Neovim](https://neovim.io/) with [NvChad](https://nvchad.com/)
+- [Neofetch](https://github.com/dylanaraps/neofetch)
+- [Touchégg](https://github.com/JoseExposito/touchegg) via [Touche](https://github.com/JoseExposito/touche) for touchpad gestures
+- [EasyEffects](https://github.com/wwmm/easyeffects) presets for audio processing
+- Git configuration
+- [Rclone](https://rclone.org/) setup for Google Drive sync
+- XFCE-specific keybindings and desktop tweaks
 
-## Default Tmux Layout
+## Terminal Layout
 
-![Setup Screenshot](./assets/development-setup.png)
+![Terminal Setup](./assets/development-setup.png)
+
+## Spicetify Layout
+
+![Spotify Setup](./assets/spotify-setup.png)
 
 ## Cloning
 
