@@ -45,3 +45,5 @@
 
     "~/.config/rclone/rclone.conf": "rclone/rclone.conf"
     "~/.config/systemd/user": "rclone/*.service"
+
+    "~/.config/touchegg/touchegg.conf": "touchegg.conf"
