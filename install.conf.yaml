@@ -42,3 +42,6 @@
 
     "~/.config/easyeffects":
       path: "easyeffects/*"
+
+    "~/.config/rclone/rclone.conf": "rclone/rclone.conf"
+    "~/.config/systemd/user": "rclone/*.service"

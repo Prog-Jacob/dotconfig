@@ -1,3 +1,4 @@
 terminal.zsh_history filter=git-crypt diff=git-crypt
+rclone/rclone.conf filter=git-crypt diff=git-crypt
 # *.key filter=git-crypt diff=git-crypt
 # secretdir/** filter=git-crypt diff=git-crypt

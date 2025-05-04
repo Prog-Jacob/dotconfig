@@ -28,6 +28,12 @@ This is my personal setup for Linux systems — mainly as a backup and to easily
 
 ![Audio Setup](./assets/easyeffects-setup.png)
 
+## Google Drive Layout
+
+Google Drive is as normal as any other local folder.
+
+![Rclone Setup](./assets/google-drive-sync.png)
+
 ## Cloning
 
 ```bash
