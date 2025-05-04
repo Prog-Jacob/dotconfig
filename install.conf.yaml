@@ -36,3 +36,6 @@
     "~/.zsh_history": "terminal/.zsh_history"
     "~/.tmux/.tmux.conf.local": "terminal/.tmux.conf.local"
     "~/.config/qterminal.org/qterminal.ini": "terminal/qterminal.ini"
+
+    "~/.config/spicetify":
+      path: "spicetify/*"
