@@ -9,7 +9,6 @@ This is my personal setup for Linux systems — mainly as a backup and to easily
 - Terminal: [QTerminal](https://github.com/lxqt/qterminal) + [Zsh](https://www.zsh.org/) + [Oh My Zsh](https://ohmyz.sh/) + [Powerlevel10k](https://github.com/romkatv/powerlevel10k)
 - [Tmux](https://github.com/tmux/tmux) with [Oh My Tmux](https://github.com/gpakosz/.tmux)
 - [Neovim](https://neovim.io/) with [NvChad](https://nvchad.com/)
-- [Neofetch](https://github.com/dylanaraps/neofetch)
 - [Touchégg](https://github.com/JoseExposito/touchegg) via [Touche](https://github.com/JoseExposito/touche) for touchpad gestures
 - [EasyEffects](https://github.com/wwmm/easyeffects) presets for audio processing
 - Git configuration
