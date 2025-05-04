@@ -34,6 +34,10 @@ Google Drive is as normal as any other local folder.
 
 ![Rclone Setup](./assets/google-drive-sync.png)
 
+## Touchpad Gestures
+
+![Touch Gestures](./assets/touch-gestures.png)
+
 ## Cloning
 
 ```bash
