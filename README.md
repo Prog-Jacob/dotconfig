@@ -24,6 +24,10 @@ This is my personal setup for Linux systems — mainly as a backup and to easily
 
 ![Spotify Setup](./assets/spotify-setup.png)
 
+## EasyEffects Layout
+
+![Audio Setup](./assets/easyeffects-setup.png)
+
 ## Cloning
 
 ```bash

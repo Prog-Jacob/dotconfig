@@ -39,3 +39,6 @@
 
     "~/.config/spicetify":
       path: "spicetify/*"
+
+    "~/.config/easyeffects":
+      path: "easyeffects/*"
