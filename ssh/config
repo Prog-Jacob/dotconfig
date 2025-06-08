@@ -1,0 +1,16 @@
+Host github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_ed25519
+    IdentitiesOnly yes
+
+Host github.com-riess
+    HostName github.com
+    User git
+    IdentityFile ~/Documents/Riess/.ssh/riess_ed25519
+    IdentitiesOnly yes
+Host github.com-knowtrex
+    HostName github.com
+    User git
+    IdentityFile ~/Documents/Knowtrex/.ssh/id_ed25519
+    IdentitiesOnly yes
