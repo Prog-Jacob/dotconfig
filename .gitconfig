@@ -22,3 +22,7 @@
 	gpgsign = true
 [gpg]
 	program = gpg
+[includeIf "gitdir:~/Documents/Riess/**"]
+    path = ~/Documents/Riess/.gitconfig
+[includeIf "gitdir:~/Documents/Knowtrex/**"]
+    path = ~/Documents/Knowtrex/.gitconfig
