@@ -29,6 +29,15 @@
         fi
       description: Installing Oh My Tmux
 
+    - command: |
+        if [ ! -d "$HOME/.config/spicetify" ]; then
+          curl -fsSL https://raw.githubusercontent.com/spicetify/cli/main/install.sh | sed 's/read -r choice < \/dev\/tty/choice="y"/' | sh
+          sh <(curl -s https://raw.githubusercontent.com/harbassan/spicetify-apps/main/stats/install.sh)
+          git clone --depth=1 https://github.com/spicetify/spicetify-themes.git tmp-themes
+          mv tmp-themes/Sleek "$HOME/.config/spicetify/Themes" && rm -rf tmp-themes
+        fi
+      description: Installing spicetify
+
 - link:
     "~/.zshrc": "terminal/.zshrc"
     "~/.p10k.zsh": "terminal/.p10k.zsh"
@@ -37,8 +46,7 @@
     "~/.tmux/.tmux.conf.local": "terminal/.tmux.conf.local"
     "~/.config/qterminal.org/qterminal.ini": "terminal/qterminal.ini"
 
-    "~/.config/spicetify":
-      path: "spicetify/*"
+    "~/.config/spicetify/config-xpui.ini": "spicetify/config-xpui.ini"
 
     "~/.config/easyeffects":
       path: "easyeffects/*"
