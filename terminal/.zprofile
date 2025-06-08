@@ -9,3 +9,4 @@
 if [ -f "$HOME/.profile" ]; then
     emulate sh -c '. "$HOME/.profile"'
 fi
+source "$HOME/.emsdk/emsdk_env.sh"
