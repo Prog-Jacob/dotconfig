@@ -5,11 +5,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Add deno completions to search path
-if [[ ":$FPATH:" != *":$HOME/.zsh/completions:"* ]]; then export FPATH="$HOME/.zsh/completions:$FPATH"; fi
-# ~/.zshrc file for zsh interactive shells.
-# see /usr/share/doc/zsh/examples/zshrc for examples
-
 ZSH_THEME="powerlevel10k/powerlevel10k"
 export ZSH="$HOME/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
@@ -97,7 +92,7 @@ esac
 force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+    if command -v tput &>/dev/null && tput setaf 1 &>/dev/null; then
         # We have color support; assume it's compliant with Ecma-48
         # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
         # a case would tend to support setf rather than setaf.)
@@ -143,8 +138,8 @@ if [ "$color_prompt" = yes ]; then
     configure_prompt
 
     # enable syntax-highlighting
-    if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-        . /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    if [ -f "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
+        . "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
         ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
         ZSH_HIGHLIGHT_STYLES[default]=none
         ZSH_HIGHLIGHT_STYLES[unknown-token]=underline
@@ -210,8 +205,6 @@ case "$TERM" in
 xterm*|rxvt*|Eterm|aterm|kterm|gnome*|alacritty)
     TERM_TITLE=$'\e]0;${debian_chroot:+($debian_chroot)}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))}%n@%m: %~\a'
     ;;
-*)
-    ;;
 esac
 
 precmd() {
@@ -228,99 +221,17 @@ precmd() {
     fi
 }
 
-# enable color support of ls, less and man, and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    export LS_COLORS="$LS_COLORS:ow=30;44:" # fix ls color for folders with 777 permissions
-
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-    alias diff='diff --color=auto'
-    alias ip='ip --color=auto'
-
-    export LESS_TERMCAP_mb=$'\E[1;31m'     # begin blink
-    export LESS_TERMCAP_md=$'\E[1;36m'     # begin bold
-    export LESS_TERMCAP_me=$'\E[0m'        # reset bold/blink
-    export LESS_TERMCAP_so=$'\E[01;33m'    # begin reverse video
-    export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
-    export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
-    export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
-
-    # Take advantage of $LS_COLORS for completion as well
-    zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-    zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
-fi
-
 # some more ls aliases
-alias ll='ls -l'
-alias la='ls -A'
-alias l='ls -CF'
+alias ll='ls -lG'
+alias la='ls -AG'
+alias l='ls -CFG'
 
 # enable auto-suggestions based on the history
-if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
-    . /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+if [ -f "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
+    . "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
     # change suggestion color
     ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#999'
 fi
-
-# enable command-not-found if installed
-if [ -f /etc/zsh_command_not_found ]; then
-    . /etc/zsh_command_not_found
-fi
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/usr/local/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/usr/local/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/usr/local/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/usr/local/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-
-# >>> juliaup initialize >>>
-
-# !! Contents within this block are managed by juliaup !!
-
-path=('$HOME/.juliaup/bin' $path)
-export PATH
-
-# <<< juliaup initialize <<<
-
-
-# pnpm
-export PNPM_HOME="$HOME/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
-
-# Initialize zsh completions (added by deno install script)
-autoload -Uz compinit
-compinit
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:$HOME/.lmstudio/bin"
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 unset ZSH_AUTOSUGGEST_USE_ASYNC
@@ -356,43 +267,19 @@ testpy() {
 }
 
 fullupgrade() {
-	sudo apt update
-	sudo apt full-upgrade -y
-	sudo apt autoremove -y
-	sudo apt autoclean
+    brew update
+    brew upgrade
+    brew cleanup
 }
-
-setxkbmap -option ctrl:nocaps
-
-# >>> nvim initialize >>>
-
-path=('/opt/nvim/bin' $path)
-export PATH
-
-# <<< nvim initialize <<<
-
-
-export ANDROID_HOME=$HOME/Android/Sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-export ANDROID_SDK_HOME=$HOME/.config/.android
-
-export JAVA_HOME=/usr/lib/jvm/java-17-oracle-x64
-export PATH=${JAVA_HOME}/bin:${PATH}
 
 alias nvitop="pipx run nvitop"
 alias vim="nvim"
 alias vi="nvim"
 
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.mujoco/mujoco210/bin
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/nvidia
-export PATH=$PATH:$HOME/.spicetify
+export PATH="/opt/homebrew/bin:$PATH"
 
-## Settings for CUDA Development
-export CUDNN_PATH="$HOME/.local/lib/python3.11/site-packages/nvidia/cudnn"
-export LD_LIBRARY_PATH="$CUDNN_PATH/lib":"/usr/lib/cuda/lib64"
-export PATH="/usr/local/anaconda3/bin:$PATH"
-export PATH="$PATH":"/usr/lib/cuda/bin"
-export PATH="$HOME/.local/bin:$PATH"
-export CUDA_MODULE_LOADING="LAZY"
-export TF_CPP_MIN_LOG_LEVEL="1"
+# >>> Initialize nvm (AhmedAbdelaziz) <<<
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+# >>> Initialize nvm (AhmedAbdelaziz) <<<

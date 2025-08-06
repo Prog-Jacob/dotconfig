@@ -44,19 +44,10 @@
     "~/.zprofile": "terminal/.zprofile"
     "~/.zsh_history": "terminal/.zsh_history"
     "~/.tmux/.tmux.conf.local": "terminal/.tmux.conf.local"
-    "~/.config/qterminal.org/qterminal.ini": "terminal/qterminal.ini"
-
     "~/.config/spicetify/config-xpui.ini": "spicetify/config-xpui.ini"
 
     "~/.config/easyeffects":
       path: "easyeffects/*"
-
-    "~/.config/rclone/rclone.conf": "rclone/rclone.conf"
-    "~/.config/systemd/user": "rclone/*.service"
-
-    "~/.config/touchegg/touchegg.conf": "touchegg.conf"
-
-    "~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml": "xfce4-keyboard-shortcuts.xml"
 
     "~/.gitconfig": ".gitconfig"
 

@@ -3,7 +3,7 @@
 [user]
 	name = Ahmed Abdelaziz
 	email = ahmed.abdelaziz.gm@gmail.com
-	signingkey = CCDEEB52684C92F6
+	signingkey = 529206FD250CB92F
 [http]
 	postBuffer = 157286400
 	version = HTTP/1.1
@@ -24,7 +24,3 @@
 	program = gpg
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
-[includeIf "gitdir:~/Documents/Riess/**"]
-    path = ~/Documents/Riess/.gitconfig
-[includeIf "gitdir:~/Documents/Knowtrex/**"]
-    path = ~/Documents/Knowtrex/.gitconfig
