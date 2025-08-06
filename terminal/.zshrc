@@ -277,9 +277,12 @@ alias vim="nvim"
 alias vi="nvim"
 
 export PATH="/opt/homebrew/bin:$PATH"
+export LC_TIME=en_US.UTF-8
+export GPG_TTY=$(tty)
 
 # >>> Initialize nvm (AhmedAbdelaziz) <<<
   export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 # >>> Initialize nvm (AhmedAbdelaziz) <<<
+export PATH="$PATH:/Applications/010 Editor.app/Contents/CmdLine" #ADDED BY 010 EDITOR
