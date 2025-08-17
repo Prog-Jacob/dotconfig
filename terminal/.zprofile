@@ -9,3 +9,6 @@
 if [ -f "$HOME/.profile" ]; then
     emulate sh -c '. "$HOME/.profile"'
 fi
+
+# Created by `pipx` on 2025-08-13 15:31:25
+export PATH="$PATH:$HOME/.local/bin"

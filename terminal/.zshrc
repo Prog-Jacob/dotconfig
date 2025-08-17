@@ -286,3 +286,4 @@ export GPG_TTY=$(tty)
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 # >>> Initialize nvm (AhmedAbdelaziz) <<<
 export PATH="$PATH:/Applications/010 Editor.app/Contents/CmdLine" #ADDED BY 010 EDITOR
+export PATH=$PATH:$HOME/.spicetify
