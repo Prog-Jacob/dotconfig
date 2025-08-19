@@ -3,3 +3,10 @@ Host github.com
     User git
     IdentityFile ~/.ssh/mac_personal_ed25519
     IdentitiesOnly yes
+Host karcher
+    HostName archer.local
+    User prog-jacob
+    IdentityFile ~/.ssh/mac_ssh_ed25519
+    ControlMaster auto
+    ControlPath ~/.ssh/sockets/%r@%h-%p
+    ControlPersist 600
